@@ -38,8 +38,8 @@ class CreateAppTables extends Migration
 
         Schema::create('competitions_teams', function (Blueprint $table) {
             $table->increments('id');
-            $table->increments('competition_id')->unsigned();
-            $table->increments('team_id')->unsigned();
+            $table->integer('competition_id')->unsigned();
+            $table->integer('team_id')->unsigned();
         });
 
         Schema::create('players', function (Blueprint $table) {
@@ -47,7 +47,7 @@ class CreateAppTables extends Migration
             $table->integer('team_id')->unsigned();
             $table->string('name');
             $table->string('position')->nullable();
-            $table->integer('shirtNumber')->nullable();
+            $table->integer('shirt_number')->nullable();
 
             $table->foreign('team_id')
                 ->references('id')->on('teams');
