@@ -20,8 +20,8 @@ Route::get('/competitions', 'CompetitionController@index')->name('competitions')
 Route::get('/competitions/{competition}', 'CompetitionController@show')->name('competitions.show');
 
 //Teams
-Route::get('/team', 'TeamController@index')->name('teams');
-Route::get('/team/{team}', 'TeamController@show')->name('teams.show');
+Route::get('/teams', 'TeamController@index')->name('teams');
+Route::get('/teams/{team}', 'TeamController@show')->name('teams.show');
 
 //Players
 Route::get('/players', 'PlayerController@index')->name('players');
