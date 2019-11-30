@@ -8,15 +8,8 @@ use Tests\TestCase;
 
 class PlayerControllerTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testExample()
+    public function it_can_get_all_players()
     {
-        $response = $this->get('/');
 
-        $response->assertStatus(200);
     }
 }

@@ -8,15 +8,13 @@ use Tests\TestCase;
 
 class TeamControllerTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testExample()
+    public function it_can_get_all_teams()
     {
-        $response = $this->get('/');
 
-        $response->assertStatus(200);
+    }
+
+    public function it_can_get_details_of_a_team()
+    {
+
     }
 }
