@@ -57,3 +57,6 @@ Para poner en marcha completamente no olvide activar la ejecución de trabajos e
 ```cmd
 php artisan queue:work
 ``` 
+
+Adolfo Cuadros
+Software Developer
