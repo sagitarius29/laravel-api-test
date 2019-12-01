@@ -8,7 +8,7 @@ class Limiter
 {
     protected $perMinute;
 
-    public function __construct($perMinute)
+    public function __construct($perMinute = 10)
     {
         $this->perMinute = $perMinute;
     }

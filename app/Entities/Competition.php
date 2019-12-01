@@ -29,6 +29,6 @@ class Competition extends Model
 
     public function teams()
     {
-        return $this->hasManyThrough(Team::class, 'competitions_teams');
+        return $this->belongsToMany(Team::class, 'competitions_teams');
     }
 }
