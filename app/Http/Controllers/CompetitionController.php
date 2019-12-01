@@ -20,7 +20,9 @@ class CompetitionController extends Controller
 
     public function show(Competition $competition)
     {
-        UpdateCompetitionsTeams::dispatch($competition->id);
+        if($competition->teams()->count() == 0) {
+            UpdateCompetitionsTeams::dispatch($competition->id);
+        }
 
         $competition->teams;
 

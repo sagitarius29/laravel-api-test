@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Entities\Competition;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Queue;
 use Tests\TestCase;
 
 class CompetitionControllerTest extends TestCase
@@ -24,6 +25,8 @@ class CompetitionControllerTest extends TestCase
     /** @test */
     public function it_can_get_detais_of_a_competition()
     {
+        Queue::fake();
+
         $competition = factory(Competition::class)->create();
 
         $this->get('/competitions/' . $competition->id)
