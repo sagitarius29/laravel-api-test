@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Competition;
-use Illuminate\Http\Request;
+use App\Jobs\UpdateCompetitionsTeams;
 
 class CompetitionController extends Controller
 {
     public function index()
     {
+        if(Competition::count() == 0) {
+            Competition::updateFromApi();
+        }
+
         $competitions = Competition::all();
 
         return response()->json($competitions);
@@ -16,6 +20,10 @@ class CompetitionController extends Controller
 
     public function show(Competition $competition)
     {
+        UpdateCompetitionsTeams::dispatch($competition->id);
+
+        $competition->teams;
+
         return response()->json($competition);
     }
 }

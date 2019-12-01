@@ -56,10 +56,10 @@ class Handler extends ExceptionHandler
             $code = 404;
         }
 
-        return response()->json([
+        /*return response()->json([
             'message' => $message,
             'code' => $code
-        ], $code);
-        //return parent::render($request, $exception);
+        ], $code);*/
+        return parent::render($request, $exception);
     }
 }

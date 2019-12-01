@@ -3,6 +3,7 @@
 namespace App\Lib;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 
 class FootballData
 {
@@ -13,8 +14,8 @@ class FootballData
 
     public function __construct($version, $token = null)
     {
-        $this->token = $token ?? env('FOOTBALL_API_TOKEN', '');
-        $this->limiter = new Limiter(env('FOOTBALL_API_PER_MINUTE', 10));
+        $this->token = config('football.api_token');
+        $this->limiter = new Limiter(config('football.api_per_minute'));
         $this->client = new Client([
             'headers' => [
                 'X-Auth-Token' => $this->token
@@ -26,8 +27,10 @@ class FootballData
     public function get($uri)
     {
         while(!$this->limiter->ifAvailable()) {
-            sleep(10);
+            sleep(25);
         }
+
+        $this->limiter->increment();
 
         $response = $this->client->get($uri);
         $contents = $response->getBody()->getContents();

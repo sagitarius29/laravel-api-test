@@ -15,29 +15,29 @@ class Limiter
 
     public function increment()
     {
-        $currentMinute = now()->format('dHi');
+        $currentMinute = now()->format('YmdHi');
         $keyCounter = $currentMinute;
-        $keyTimestamp = 't_'.$currentMinute;
+        $keyTimestamp = 't_'.((int) $currentMinute);
 
         if(Cache::has($keyCounter)) {
             Cache::increment($keyCounter);
         } else {
-            Cache::put($keyCounter, 1, 60);
+            Cache::put($keyCounter, 1, 200);
         }
 
-        Cache::put($keyTimestamp, now()->timestamp, 60);
+        Cache::put($keyTimestamp, now()->timestamp, 200);
     }
 
     public function used()
     {
         $timestamp = now()->timestamp;
-        $keyCounter = now()->format('dHi');
-        $previousCounter = (string) $keyCounter - 1;
+        $keyCounter = now()->format('YmdHi');
+        $previousCounter = $keyCounter - 1;
 
         $total = 0;
 
         if(Cache::has('t_'.$previousCounter) && Cache::get('t_'.$previousCounter) > $timestamp - 60) {
-            $total += Cache::get($previousCounter);
+            $total += Cache::get((string) $previousCounter);
         }
 
         if(Cache::has($keyCounter)) {

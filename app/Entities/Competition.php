@@ -13,6 +13,10 @@ class Competition extends Model
         'id', 'name', 'code',
     ];
 
+    protected $hidden = [
+        'created_at', 'updated_at'
+    ];
+
     public static function updateFromApi()
     {
         $footballData = new FootballData('v2');

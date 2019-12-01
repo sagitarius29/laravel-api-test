@@ -12,6 +12,10 @@ class Team extends Model
         'id', 'name', 'short_name', 'tla', 'address', 'phone', 'website', 'email', 'founded', 'club_colors', 'venue'
     ];
 
+    protected $hidden = [
+        'created_at', 'updated_at'
+    ];
+
     public function competitions()
     {
         return $this->belongsToMany(Competition::class, 'competitions_teams');

@@ -13,7 +13,7 @@ class LimiterTest extends TestCase
 {
     public function test_create_limit()
     {
-        Carbon::setTestNow(Carbon::createFromFormat('Y-m-d H:i:s', '2019-11-30 15:30:20'));
+        Carbon::setTestNow(Carbon::createFromFormat('Y-m-d H:i:s', '2019-12-01 15:30:20'));
 
         $perMinute = 5;
 

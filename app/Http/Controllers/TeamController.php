@@ -16,6 +16,8 @@ class TeamController extends Controller
 
     public function show(Team $team)
     {
+        $team->players;
+
         return response()->json($team);
     }
 }

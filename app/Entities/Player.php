@@ -12,6 +12,10 @@ class Player extends Model
         'id', 'name', 'position', 'shirt_number', 'team_id'
     ];
 
+    protected $hidden = [
+        'created_at', 'updated_at'
+    ];
+
     public function team()
     {
         return $this->belongsTo(Team::class);
