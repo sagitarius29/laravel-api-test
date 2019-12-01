@@ -10,13 +10,13 @@ cp .env.example .env
 php artisan migrate --seed
 ```
 
-Modificar el archiv .env para ingresar el token
+Modificar el archivo .env para ingresar el token
 ```text
 FOOTBALL_API_TOKEN=
 FOOTBALL_API_PER_MINUTE=8
 ```
 
-## Instrucciones
+## Instrucciones de la prueba
 
 1. Crear un API Rest en Laravel que consuman la información de https://football-data.org. Debes crear un usuario (version free), se asociará un token a tu cuenta.
 
