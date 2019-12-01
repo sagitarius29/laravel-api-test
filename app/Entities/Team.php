@@ -9,7 +9,7 @@ class Team extends Model
     protected $table = 'teams';
 
     protected $fillable = [
-        'name', 'short_name', 'tla', 'address', 'phone', 'website', 'email', 'founded', 'club_colors', 'venue'
+        'id', 'name', 'short_name', 'tla', 'address', 'phone', 'website', 'email', 'founded', 'club_colors', 'venue'
     ];
 
     public function competitions()

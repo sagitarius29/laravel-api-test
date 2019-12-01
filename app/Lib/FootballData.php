@@ -4,7 +4,7 @@ namespace App\Lib;
 
 use GuzzleHttp\Client;
 
-class FootballApi
+class FootballData
 {
     protected $token;
     protected $client;
